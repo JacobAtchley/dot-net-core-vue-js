@@ -12,7 +12,7 @@ namespace Jatchley.Samples.StartUp
     {
         public static void ConfigureApp(IApplicationBuilder app, IConfigurationRoot configuration)
         {
-           app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
+            var options = new OpenIdConnectOptions
             {
                 ClientId = configuration["AzureAD:ClientId"],
                 Authority = String.Format(configuration["AzureAd:AadInstance"], configuration["AzureAd:Tenant"]),
@@ -21,8 +21,13 @@ namespace Jatchley.Samples.StartUp
                 Events = new OpenIdConnectEvents
                 {
                     OnRemoteFailure = OnAuthenticationFailed,
-                }
-            });
+                },
+                
+            };
+
+            options.TokenValidationParameters.ValidateIssuer = false;
+
+           app.UseOpenIdConnectAuthentication(options);
         }
 
         private static Task OnAuthenticationFailed(FailureContext context)
