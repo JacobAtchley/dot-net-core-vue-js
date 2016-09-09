@@ -1,9 +1,13 @@
 @using System.Security.Principal
+@using System.Security.Claims
+@{
+    var name = (User.Identity as ClaimsIdentity).FindFirst("name").Value;
+}
 
 @if (User.Identity.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a>Hello, @User.Identity.Name</a></li>
+        <li><a>Hello, @name </a></li>
         <li>@Html.ActionLink("Log Out", "LogOff", "Account")</li>
     </ul>
 }

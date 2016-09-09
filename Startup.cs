@@ -65,7 +65,7 @@ namespace Jatchley.Samples
             app.UseCookieAuthentication();
             app.UseCors(builder => builder.WithOrigins("*"));
 
-            OpenIdConnect.ConfigureApp(app, Configuration);
+            OpenIdConnect.ConfigureApp(app, Configuration, loggerFactory.CreateLogger("OpenIdConnect"));
 
             app.UseMvc(routes =>
             {
