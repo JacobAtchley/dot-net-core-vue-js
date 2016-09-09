@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div id="app">
+    <router-view></router-view>
+</div>
+
+@Html.Partial("_ProductList")
+@Html.Partial("_ProductAdd")
+@Html.Partial("_ProductDelete")
+
+@section scripts {
+    <script src="~/js/Products/products.js" type="text/javascript"></script>
+}

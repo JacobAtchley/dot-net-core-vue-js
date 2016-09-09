@@ -1,0 +1,31 @@
+<template id="add-product">
+  <h2>Add New Product</h2>
+  <form v-on:submit="createProduct">
+    <div class="row">
+      <div class="col-md-4">
+    <div class="form-group">
+      <label for="txtDescription">Description</label>
+      <input class="form-control" id="txtDescription" v-model="product.description" required/>
+    </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+    <div class="form-group">
+      <label for="txtDescription">Cost</label>
+      <input class="form-control" id="txtCost" v-model="product.cost" required/>
+    </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+    <div class="form-group">
+      <label for="txtDescription">In Stock</label>
+      <input class="form-control" id="txtInventory" v-model="product.inventory" required/>
+    </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a v-link="'/'" class="btn btn-danger">Cancel</a>
+  </form>
+</template>

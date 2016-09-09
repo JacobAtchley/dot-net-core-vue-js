@@ -1,0 +1,47 @@
+<template id="product-list">
+  <h2>Products</h2>
+  <div class="row">
+    <div class="col-md-3">
+      <a class="btn btn-primary" v-link="{path: '/add'}">Add New Product</a>
+    </div>
+    <div class="col-md-3 col-md-offset-6">
+      <div class="input-group">
+        <span class="input-group-addon">Filter</span>
+        <input v-model="filterTodoText" name="filter" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table responsive">
+        <thead>
+          <tr>
+            <th v-on:click="tableSortField = 'id'">
+              Id
+            </th>
+            <th v-on:click="tableSortField = 'description'">
+              Description
+            </th>
+            <th v-on:click="tableSortField = 'cost'">
+              Cost
+            </th>
+            <th v-on:click="tableSortField = 'inventory'">
+              In Stock?
+            </th>
+            <th>
+              Action
+            </th>
+        </thead>
+        <tbody>
+          <tr v-for="product in products | filterBy filterTodoText in 'description' | orderBy tableSortField">
+            <td>{{ product.id }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.cost | currency}} </td>
+            <td>{{ product.isInStock() ? 'Yes' : 'No'}} </td>
+            <td><a class="btn btn-danger btn-xs" v-link="{name: 'delete-product', params: {product_id: product.id}}">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

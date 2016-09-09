@@ -1,0 +1,14 @@
+<template id="delete-product">
+  <h2>Delete Product</h2>
+  <div class="row">
+    <div class="col-md-4">
+  <div class="alert alert-warning">
+    Are you sure you want to delete product <strong>{{ product.description }}</strong> ? 
+    </div>
+    </div>
+  </div>
+  <form v-on:submit="delete">
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a v-link="'/'" class="btn btn-default">Cancel</a>
+  </form>
+</template>
