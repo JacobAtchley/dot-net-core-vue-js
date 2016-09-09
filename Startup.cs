@@ -6,9 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Jatchley.Samples.StartUp;
 using Jatchley.Samples.Data.Interfaces;
-using Jatchley.Samples.Data.Implementations;
-using System.Collections.Generic;
-using Jatchley.Samples.Models;
 using Jatchley.Samples.Data.Utils;
 
 namespace Jatchley.Samples
@@ -44,7 +41,7 @@ namespace Jatchley.Samples
         {
             services.AddMvc();
             services.AddAuthentication(x => x.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
-           
+            services.AddCors();
             services.AddSingleton<IPersonRepository>(PersonRepositoryInitializer.GetRepo(15));
         }
 
@@ -66,6 +63,8 @@ namespace Jatchley.Samples
 
             app.UseStaticFiles();
             app.UseCookieAuthentication();
+            app.UseCors(builder => builder.WithOrigins("*"));
+
             OpenIdConnect.ConfigureApp(app, Configuration);
 
             app.UseMvc(routes =>

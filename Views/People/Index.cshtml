@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "People";
+}
+
+<div id="app">
+    <router-view></router-view>
+</div>
+
+@Html.Partial("_PeopleList")
+
+@section scripts {
+    <script src="~/js/utils/restapi.js" type="text/javascript"></script>
+    <script src="~/js/people/people.js" type="text/javascript"></script>
+}
