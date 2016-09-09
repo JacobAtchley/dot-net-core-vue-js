@@ -5,18 +5,8 @@ using Jatchley.Samples.Models;
 
 namespace Jatchley.Samples.Data.Interfaces
 {
-
-    public interface IPersonRepository
-    {
-        Task<IEnumerable<Person>> GetAllAsync();
-
+    public interface IPersonRepository : IRepository<Guid,Person>
+    {        
         Task<IEnumerable<Person>> GetByLastNameAsync(string lastName);
-
-        Task<Person> AddAsync(Person model);
-
-        Task<Person> GetByIdAsync(Guid id);
-
-        Task DeleteAsync(Person model);
     }
-
 }

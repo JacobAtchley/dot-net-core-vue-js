@@ -7,6 +7,9 @@ using Microsoft.Extensions.Logging;
 using Jatchley.Samples.StartUp;
 using Jatchley.Samples.Data.Interfaces;
 using Jatchley.Samples.Data.Implementations;
+using System.Collections.Generic;
+using Jatchley.Samples.Models;
+using Jatchley.Samples.Data.Utils;
 
 namespace Jatchley.Samples
 {
@@ -41,7 +44,8 @@ namespace Jatchley.Samples
         {
             services.AddMvc();
             services.AddAuthentication(x => x.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
-            services.AddSingleton<IPersonRepository, PersonRepository>();
+           
+            services.AddSingleton<IPersonRepository>(PersonRepositoryInitializer.GetRepo(15));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

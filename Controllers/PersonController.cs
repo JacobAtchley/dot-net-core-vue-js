@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using Jatchley.Samples.Data;
 using Jatchley.Samples.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -52,6 +51,8 @@ namespace Jatchley.Samples.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPerson([FromBody] Person person)
         {
+            person.Id = Guid.NewGuid();
+            
             var added = await PersonRepository.AddAsync(person);
 
             return CreatedAtRoute("GetPerson", new {id = added.Id}, added);
