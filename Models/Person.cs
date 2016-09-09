@@ -1,6 +1,6 @@
 using System;
 
-namespace docker_web_test.Models
+namespace Jatchley.Samples.Models
 {
     public class Person {
         public string FirstName {get;set;}

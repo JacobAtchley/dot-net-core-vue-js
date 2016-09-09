@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "docker_web_test": {
+    "Jatchley.Samples": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5888",

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using docker_web_test.Models;
+using Jatchley.Samples.Models;
 
-namespace docker_web_test.Data
+namespace Jatchley.Samples.Data.Interfaces
 {
 
     public interface IPersonRepository

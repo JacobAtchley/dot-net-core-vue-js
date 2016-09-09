@@ -1,5 +1,5 @@
 {
-  "userSecretsId": "aspnet-docker_web_test-616b7d79-e3f9-4905-a9a3-01480f13214d",
+  "userSecretsId": "aspnet-Jatchley.Samples-616b7d79-e3f9-4905-a9a3-01480f13214d",
 
   "dependencies": {
     "Microsoft.NETCore.App": {
@@ -86,6 +86,6 @@
   },
 
   "tooling": {
-    "defaultNamespace": "docker_web_test"
+    "defaultNamespace": "Jatchley.Samples"
   }
 }

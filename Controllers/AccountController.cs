@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
-namespace docker_web_test.Controllers
+namespace Jatchley.Samples.Controllers
 {
     public class AccountController : Controller
     {

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
-namespace docker_web_test.StartUp
+namespace Jatchley.Samples.StartUp
 {
     public static class OpenIdConnect
     {

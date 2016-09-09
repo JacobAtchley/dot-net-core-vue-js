@@ -1,8 +1,8 @@
-using docker_web_test.Models;
+using Jatchley.Samples.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace docker_web_test.Controllers
+namespace Jatchley.Samples.Controllers
 {
     [Authorize]
     public class ClaimsController : Controller 

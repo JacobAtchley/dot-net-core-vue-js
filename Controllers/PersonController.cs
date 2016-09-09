@@ -1,11 +1,12 @@
 using System;
 using System.Threading.Tasks;
-using docker_web_test.Data;
-using docker_web_test.Models;
+using Jatchley.Samples.Data;
+using Jatchley.Samples.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Jatchley.Samples.Data.Interfaces;
 
-namespace docker_web_test.Controllers
+namespace Jatchley.Samples.Controllers
 {
     [Route("api/[controller]")]
     public class PersonController : Controller

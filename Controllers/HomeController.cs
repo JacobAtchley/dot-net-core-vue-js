@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace docker_web_test.Controllers
+namespace Jatchley.Samples.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,5 +1,5 @@
 {
-  "name": "docker_web_test",
+  "name": "Jatchley.Samples",
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.6",

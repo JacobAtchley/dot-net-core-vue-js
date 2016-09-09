@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using docker_web_test.Models;
+using Jatchley.Samples.Models;
+using Jatchley.Samples.Data.Interfaces;
 
-namespace docker_web_test.Data
+namespace Jatchley.Samples.Data.Implementations
 {
 
     public class PersonRepository : IPersonRepository
@@ -19,7 +20,7 @@ namespace docker_web_test.Data
 
             new Person {
                 FirstName = "David",
-                LastName = "Woodrin",
+                LastName = "Woodring",
                 Id = Guid.NewGuid()
             }
         };

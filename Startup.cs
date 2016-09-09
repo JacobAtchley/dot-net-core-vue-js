@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using docker_web_test.StartUp;
-using docker_web_test.Data;
+using Jatchley.Samples.StartUp;
+using Jatchley.Samples.Data.Interfaces;
+using Jatchley.Samples.Data.Implementations;
 
-namespace docker_web_test
+namespace Jatchley.Samples
 {
     public class Startup
     {
