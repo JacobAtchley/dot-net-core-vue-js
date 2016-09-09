@@ -1,0 +1,33 @@
+@model docker_web_test.Models.ClaimViewModel
+
+@{
+    ViewData["Title"] = "Claims";
+}
+
+<h2>@ViewData["Title"].</h2>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Type
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Claims)
+            {
+                <tr>
+                    <td>
+                        @item.Value
+                    </td>
+                    <td>
+                        @item.Type
+                    </td>
+                </tr>
+            }
+        </tbody>
+</table>
