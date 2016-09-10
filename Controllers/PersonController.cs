@@ -4,9 +4,11 @@ using Jatchley.Samples.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Jatchley.Samples.Data.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Jatchley.Samples.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class PersonController : Controller
     {

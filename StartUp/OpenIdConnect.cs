@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -27,6 +29,8 @@ namespace Jatchley.Samples.StartUp
                     {
                         var token = x.SecurityToken.RawPayload;
                         logger.LogInformation(token);
+                        logger.LogInformation($"Issuer : {x.SecurityToken.Issuer}");
+                        logger.LogInformation($"Audiences : {x.SecurityToken.Audiences.Aggregate(new StringBuilder(), (b,i) => b.Append(i).Append(""))}");
                         var tokenClaim = new Claim("token", token);
 
                         var identity = x.Ticket.Principal.Identity;
