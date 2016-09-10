@@ -3,11 +3,18 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Jatchley.Samples.Controllers
 {
     public class AccountController : Controller
     {
+        private ILogger<AccountController> Logger { get; set; }
+
+        public AccountController(ILogger<AccountController> logger)
+        {
+            Logger = logger;
+        }
         // GET: /Account/Login
         [HttpGet]
         public async Task Login()
@@ -16,15 +23,19 @@ namespace Jatchley.Samples.Controllers
                 await HttpContext.Authentication.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme, new AuthenticationProperties { RedirectUri = "/" });
         }
 
-        // GET: /Account/LogOff
+        // POST: /Account/LogOff
         [HttpGet]
-        public async Task LogOff()
+        public async Task<IActionResult> LogOff()
         {
+            Logger.LogInformation("Logging off");
+
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                await HttpContext.Authentication.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);
+                //await HttpContext.Authentication.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);
                 await HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             }
+
+            return this.LocalRedirect("/");
         }
 
         [HttpGet]

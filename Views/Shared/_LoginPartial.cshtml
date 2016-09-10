@@ -1,7 +1,7 @@
 @using System.Security.Principal
 @using System.Security.Claims
 @{
-    var name = (User.Identity as ClaimsIdentity).FindFirst("name").Value;
+    var name = User.Identity.Name;
 }
 
 @if (User.Identity.IsAuthenticated)

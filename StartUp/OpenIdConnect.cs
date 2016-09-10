@@ -28,6 +28,24 @@ namespace Jatchley.Samples.StartUp
                         var token = x.SecurityToken.RawPayload;
                         logger.LogInformation(token);
                         var tokenClaim = new Claim("token", token);
+
+                        var identity = x.Ticket.Principal.Identity;
+
+                        var claimIdentity = new ClaimsIdentity(
+                            identity.AuthenticationType,
+                            "name",
+                            "role");
+
+                        claimIdentity.AddClaim(tokenClaim);
+                        claimIdentity.AddClaims(x.Ticket.Principal.Claims);
+
+                        var princiapl = new ClaimsPrincipal(claimIdentity);
+
+                        x.Ticket = new AuthenticationTicket(
+                            princiapl,
+                            x.Ticket.Properties,
+                            x.Ticket.AuthenticationScheme);
+
                         return Task.CompletedTask;
                     }
 
